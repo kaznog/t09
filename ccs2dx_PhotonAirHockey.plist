@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>assets</key>
+			<array>
+				<dict>
+					<key>kind</key>
+					<string>software-package</string>
+					<key>url</key>
+					<string>http://210.140.145.95/~noguchika/secured/photonairhockey-lobby/ccs2dx_PhotonAirHockey.ipa</string>
+				</dict>
+				<dict>
+					<key>kind</key>
+					<string>full-size-image</string>
+					<key>needs-shine</key>
+					<true/>
+					<key>url</key>
+					<string>http://210.140.145.95/~noguchika/secured/photonairhockey-lobby/large.png</string>
+				</dict>
+				<dict>
+					<key>kind</key>
+					<string>display-image</string>
+					<key>needs-shine</key>
+					<true/>
+					<key>url</key>
+					<string>http://210.140.145.95/~noguchika/secured/photonairhockey-lobby/small.png</string>
+				</dict>
+			</array>
+			<key>metadata</key>
+			<dict>
+				<key>bundle-identifier</key>
+				<string>jp.MarvelousAQL.PhotonAirHockey</string>
+				<key>kind</key>
+				<string>software</string>
+				<key>subtitle</key>
+				<string>research</string>
+				<key>title</key>
+				<string>Lobby With Photon Air Hockey for cocos2d-x</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
