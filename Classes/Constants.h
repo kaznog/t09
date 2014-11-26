@@ -27,7 +27,7 @@ const unsigned char STATUS_PLAYER_VEC_Y = 3;
 #if( CC_TARGET_PLATFORM == CC_PLATFORM_IOS )
 static const char f_AmericanTypewriter[] = "American Typewriter";
 #else
-static const char f_AmericanTypewriter[] = "fonts/American Typewriter.ttf";
+static const char f_AmericanTypewriter[] = "fonts/Marker Felt.ttf";
 #endif
 
 #define FONT_SIZE(__SIZE) (cocos2d::CCEGLView::sharedOpenGLView()->getDesignResolutionSize().width / 480 * __SIZE)

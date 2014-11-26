@@ -49,7 +49,7 @@ CCLobbyView::CCLobbyView()
 
 CCLobbyView::~CCLobbyView()
 {
-    CC_SAFE_RELEASE_NULL(this->_lobbyViewDataSource);
+    CC_SAFE_DELETE(this->_lobbyViewDataSource);
     CocosNetworkLogic::dispose();
     this->_console = NULL;
     this->_connectMenu = NULL;
@@ -94,24 +94,30 @@ void CCLobbyView::removeRoomTable()
 {
     CCNode *roomTable = NULL;
     while ( (roomTable = this->getChildByTag( Child::CCTableView_roomTable)) ) {
+    	CCTableView* table = dynamic_cast<CCTableView*>(roomTable);
+    	table->removeAllChildren();
         this->removeChild(roomTable, true);
     }
     
-    CC_SAFE_RELEASE_NULL( this->_lobbyViewDataSource );
+    CC_SAFE_DELETE( this->_lobbyViewDataSource );
 }
 
 bool CCLobbyView::initRoomTable()
 {
     const CCPoint center = this->getCenter();
+    CCLOG("CCLobbyView::initRoomTable:1");
     this->removeRoomTable();
     this->_lobbyViewDataSource = new CCLobbyViewDataSource(this);
+    CCLOG("CCLobbyView::initRoomTable:2");
     
     if (this->_lobbyViewDataSource) {
-        this->_lobbyViewDataSource->autorelease();
-        CC_SAFE_RETAIN(this->_lobbyViewDataSource);
+//        this->_lobbyViewDataSource->autorelease();
+//        CC_SAFE_RETAIN(this->_lobbyViewDataSource);
         CCSize tableSize = this->_lobbyViewDataSource->cellSizeForTable( NULL );
         tableSize.height *= 10.0f;
+        CCLOG("CCLobbyView::initRoomTable:3 tableSize.height[%f]", tableSize.height);
         CCTableView* table = CCTableView::create( this->_lobbyViewDataSource, tableSize );
+        CCLOG("CCLobbyView::initRoomTable:4");
         if( table )
         {
             CCSize winSize = CCDirector::sharedDirector()->getWinSize();
@@ -128,6 +134,8 @@ bool CCLobbyView::initRoomTable()
             
             this->setMinRoomsInView( 10 );
             return true;
+        } else {
+        	CCLOG("CCLobbyView::initRoomTable:5 table create failed");
         }
     }
     return false;

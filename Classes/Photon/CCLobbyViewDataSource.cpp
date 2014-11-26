@@ -65,8 +65,8 @@ unsigned int CCLobbyViewDataSource::numberOfCellsInTableView(CCTableView *table)
 {
     CocosNetworkLogic* network = CocosNetworkLogic::getInstance();
     State state = network->getState();
-    
-    if( state == STATE_DISCONNECTED )
+    CCLOG("CCLobbyViewDataSource:numberOfCellsInTableView state[%d]", state);
+    if( state == STATE_DISCONNECTED || state == STATE_INITIALIZED)
     {
         return 0;
     }
